@@ -5,7 +5,6 @@
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
-
     <style>
      * {
          -moz-box-sizing:border-box;
@@ -318,17 +317,17 @@
   <div class="post right"></div>
   <div class="pane">
     <div class="headline sign-text-color">
-      429
+      404
     </div>
     <div class="context sign-text-color">
-      Hold up. You've sent<br>
-      way too many requests!
+      Oops, the page you're<br>
+      looking for does not exist.
     </div>
   </div>
 </div>
 <div class="text-container">
   <div class="headline secondary-text-color">
-    429
+    404
   </div>
   <div class="context primary-text-color">
     <p>
@@ -337,7 +336,7 @@
     </p>
   </div>
   <div class="buttons-container">
-    <a class="border-button" href="http://localhost/index"><span class="fa fa-home"></span> Home page</a>
+    <a class="border-button" href="index.html"><span class="fa fa-home"></span> Home page</a>
     <a class="border-button" href="mailto:support@example.com" target="_blank"><span class="fa fa-warning"></span> Report problem</a>
   </div>
 </div>
@@ -409,7 +408,7 @@
      };
      ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
        //console.log('in app.js fetch');
-       if (!pageUrl || !pageType || pageType == '429') return;
+       if (!pageUrl || !pageType || pageType == '404') return;
        var url = ''
          , self = this;
        if (pageType == '503') {
@@ -429,13 +428,14 @@
          self.handleStatusFetchFail(pageType);
        });
      };
-     var ep = new ErrorPage('body', "429", "sign");
+     var ep = new ErrorPage('body', "404", "sign");
      ep.initialize();
      // hack to make sure content stays centered >_<
      $(window).on('resize', function() {
        $('body').trigger('resize')
      });
     </script>
+
 
       <!-- OneTrust Cookies Consent Notice (statuspage.io, en-GB) start -->
   <script src="https://cdn.cookielaw.org/consent/0800f092-2124-46ec-b11d-b4f48b677302.js" type="text/javascript" charset="UTF-8"></script>
