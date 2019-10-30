@@ -14,10 +14,10 @@ import org.springframework.web.client.HttpClientErrorException;
 public class DepositController {
 
     @CrossOrigin
-    @RequestMapping("/deposit_balance")
-    public String getDepositBalance(@RequestParam(value="accountId", defaultValue="1") String accountID,
-            @RequestParam(value="month", defaultValue="1") String month,
-            @RequestParam(value="year", defaultValue="1") String year)
+    @RequestMapping("/getDepositBalance")
+    public String getDepositBalance(@RequestParam(value="accountID", defaultValue="1") String accountID,
+            @RequestParam(value="month", defaultValue="10") String month,
+            @RequestParam(value="year", defaultValue="2018") String year)
     {
 
         //Getting the request entity
@@ -34,10 +34,7 @@ public class DepositController {
         try {
             result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);
             //This portion we need to change this into json and return the ID
-            String response = result.getBody();
-            JsonParser parser = new JsonParser();
-            JsonObject jsonObject = parser.parse(response).getAsJsonObject();
-            return jsonObject.toString();
+            return result.getBody();
         }catch(HttpClientErrorException e){
             return "400";
         }

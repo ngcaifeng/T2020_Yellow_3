@@ -20,8 +20,6 @@ public class LoginController {
     @CrossOrigin
     @RequestMapping("/login")
     public String login(@RequestParam(value="userName", defaultValue="limzeyang") String userName) {
-
-
         //Getting the request entity
         HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
         //Modifying the URL
