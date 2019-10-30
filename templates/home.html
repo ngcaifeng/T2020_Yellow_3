@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<meta charset="UTF-8" />
+
 <html>
 <head>
   <title>Home</title>
-  <!-- <link href="style.css" rel="stylesheet" /> -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -15,7 +16,6 @@
   <!-- MDBootstrap Datatables  -->
   <a href="css/addons/datatables.min.css" rel="stylesheet"></a>
 
-
   <style>
     .messages-body {
       width: 100%;
@@ -24,18 +24,15 @@
       margin-top: 30px;
       margin-bottom: 100px;
     }
-  
-    .container {
+    .container{
       background-color: rgba(244, 98, 58, 0.4);
       border-radius: 15px
     }
-  
-    .table {
-      table-layout: fixed;
+    .table{
+      table-layout:fixed;
       max-width: 1350px;
       width: 100%;
     }
-  
     .text-overflow {
       display: block;
       overflow: hidden;
@@ -43,76 +40,107 @@
       text-overflow: ellipsis;
     }
   </style>
-  </head>
-  
-  <!-- Navigation bar -->
-  <div class="topnav">
-    <div class="topnav-home">
-      <a class="active" href="#home">Home</a>
-    </div>
-    <div class="topnav-right">
-      <a href="#logout">Logout</a>
-      <a href="#messages">Messages</a>
-      <a href="#creditcards">Credit Cards</a>
-    </div>
-  </div>
-  
-  <style>
-    /* Add a red background color to the top navigation */
-    .topnav {
-      background-color: #BF2F24;
-      overflow: hidden;
-    }
-  
-    .topnav-right a {
-      float: right;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-  
-    .topnav-home a {
-      float: left;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-  
-    /* Change the color of links on hover */
-    .topnav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-  
-    /* Add a color to the active/current link */
-    .topnav a.active {
-      background-color: #832F24;
-      color: white;
-    }
-  </style>
-
 </head>
-<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
+<!-- Navigation bar -->
+<div class="topnav">
+  <div class="topnav-home">
+    <a class="active" href="#home">Home</a>
+  </div>
+  <div class="topnav-right">
+    <a href="#logout">Logout</a>
+    <a href="#messages">Messages</a>
+    <a href="#creditcards">Credit Cards</a>
+  </div>
+</div>
+
+<style>
+  /* Add a red background color to the top navigation */
+  .topnav {
+    background-color: #BF2F24;
+    overflow: hidden;
+  }
+
+  .topnav-right a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav-home a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #832F24;
+    color: white;
+  }
+
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  }
+</style>
 <body>
   <br/>
+  <div class="transactions-body">
+    <div class="container" style="background-color: white" width=auto>
+      <h3>Account Overview</h3>
+    </div>
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title">Balance: $2,000</h5>
+            <!-- <h5 class="card-title">Balance: $2,000</h5> -->
+            <table id="messages_table" class="table" cellspacing="0" role="grid" aria-describedby="messages_table_info" sytle="width: auto">
+              <thead style="background-color: rgba(255, 255, 255, 0.952);border-radius: 15px">
+                <tr style="vertical-align: middle; font-size: 20px" height=45>
+                  <th style="text-align: center; width: 10%">Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+                  <td style="text-align: center; vertical-align: middle; width: 30%">$2000<!--insert balance--></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title">POSB-SAVINGS 806290151</h5>
+            <!-- <h5 class="card-title">POSB-SAVINGS 806290151</h5> -->
+            <table id="messages_table" class="table" cellspacing="0" role="grid" aria-describedby="messages_table_info" sytle="width: auto">
+              <thead style="background-color: rgba(255, 255, 255, 0.952);border-radius: 15px">
+                <tr style="vertical-align: middle; font-size: 20px" height=45>
+                  <th style="text-align: center; width: 10%">Account Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+                  <td style="text-align: center; vertical-align: middle; width: 30%">POSB-SAVINGS 806290151<!--insert account number--></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -121,21 +149,57 @@
       <div class="col-4 text-center">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title">Past</h5>
+            <!-- <h5 class="card-title">Past</h5> -->
+            <table id="messages_table" class="table" cellspacing="0" role="grid" aria-describedby="messages_table_info" sytle="width: auto">
+              <thead style="background-color: rgba(255, 255, 255, 0.952);border-radius: 15px">
+                <tr style="vertical-align: middle; font-size: 20px" height=45>
+                  <th style="text-align: center; width: 10%">Past Months</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+                  <tr><td><img src="assets/Expenses.png" alt="Expenses" style="align: middle; max-width: 100%"></td></tr>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
       <div class="col-4 text-center">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title">Current</h5>
+            <!-- <h5 class="card-title">Current</h5> -->
+            <table id="messages_table" class="table" cellspacing="0" role="grid" aria-describedby="messages_table_info" sytle="width: auto">
+              <thead style="background-color: rgba(255, 255, 255, 0.952);border-radius: 15px">
+                <tr style="vertical-align: middle; font-size: 20px" height=45>
+                  <th style="text-align: center; width: 10%">Current</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+                  <tr><td><img src="assets/Transactions.png" alt="Expenses" style="align: middle; max-width: 100%"></td></tr>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
       <div class="col-4 text-center">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title">Future</h5>
+            <!-- <h5 class="card-title">Future</h5> -->
+            <table id="messages_table" class="table" cellspacing="0" role="grid" aria-describedby="messages_table_info" sytle="width: auto">
+              <thead style="background-color: rgba(255, 255, 255, 0.952);border-radius: 15px">
+                <tr style="vertical-align: middle; font-size: 20px" height=45>
+                  <th style="text-align: center; width: 10%">Future</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+                  <tr><td><img src="assets/Expenses.png" alt="Expenses" style="align: middle; max-width: 100%"></td></tr>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -151,46 +215,62 @@
       </div>
     </div>
   </div>
+  <br>
+
+  <div class="transactions-body">
+    <div class="container" style="background-color: white" width=auto>
+      <h3>All transactions</h3>
+    </div>
+    <div class="container table-responsive" width=auto>
+      <br>
+      <table id="transactions_table" class="table" cellspacing="0" role="grid" aria-describedby="transactions_table_info" sytle="width: auto">
+        <thead style="background-color: rgba(255, 255, 255, 0.952);border-radius: 15px">
+          <tr style="vertical-align: middle; font-size: 20px" height=45>
+            <th style="text-align: center; width: 25%">Date</th>
+            <th style="text-align: center; width: 25%">Amount</th>
+            <th style="text-align: center; width: 25%">Tag</th>
+            <th style="text-align: center; width: 25%">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+            <td style="text-align: center; vertical-align: middle"><!--insert date--></td>
+            <td style="text-align: center; vertical-align: middle"><!--insert amount--></td>
+            <td style="text-align: center; vertical-align: middle"><!--insert tag--></td>
+            <td style="text-align: center; vertical-align: middle"><!--insert type--></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 
-<!-- <script>
-  var ctx = document.getElementById("myChart").get
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+  $(document).ready(function () {
+    $('#transactions_table').DataTable();
+    $('.dataTables_length').addClass('bs-select');
   });
-</!--> -->
+</script>
 
 </html>
