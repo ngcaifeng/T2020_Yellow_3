@@ -1,4 +1,5 @@
 <meta charset="UTF-8" />
+
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -37,9 +38,57 @@
       text-overflow: ellipsis;
     }
   </style>
-
 </head>
 
+<!-- Navigation bar -->
+<div class="topnav">
+  <div class="topnav-home">
+    <a class="active" href="#home">Home</a>
+  </div>
+  <div class="topnav-right">
+    <a href="#logout">Logout</a>
+    <a href="#messages">Messages</a>
+    <a href="#creditcards">Credit Cards</a>
+  </div>
+</div>
+
+<style>
+  /* Add a red background color to the top navigation */
+  .topnav {
+    background-color: #BF2F24;
+    overflow: hidden;
+  }
+
+  .topnav-right a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav-home a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #832F24;
+    color: white;
+  }
+</style>
 <body>
   <div class="messages-body">
     <div class="container" style="background-color: white" width=auto>
