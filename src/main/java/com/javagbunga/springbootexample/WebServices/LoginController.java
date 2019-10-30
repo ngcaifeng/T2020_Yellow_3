@@ -1,5 +1,7 @@
 package com.javagbunga.springbootexample.WebServices;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.javagbunga.springbootexample.Common.CommonAPI;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +34,6 @@ public class LoginController {
             }catch(HttpClientErrorException e){
                 return "400";
             }
-
-            System.out.println(result);
 
             return result.getBody();
         }
