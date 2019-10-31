@@ -27,7 +27,5 @@ public class AccountsController {
         ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
         return CommonUtils.convertStringToJsonArray(result.getBody()).toString();
     }
-
-
-
+    
 }

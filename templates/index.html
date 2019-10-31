@@ -46,6 +46,27 @@
   }
 </style>
 
+<script>
+function login() {
+    var username = document.getElementById("inputUsername").value;
+    // fetch(http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/ + username)
+    fetch("http://localhost:8080/login?userName="+username)
+    .then((resp) => resp.json())
+    .then(function(data){
+      // Store results in session
+      // sessionStorage.setItem("userName", data["userName"]);
+      // sessionStorage.setItem("customerId", data["customerId"]);
+      //window.location.href = "home.html";
+      // console.log(data);
+    })
+    .catch(function(error) {
+      alert("Invalid username or password!");
+	   //window.location.href = "404.html";
+      // document.getElementById('error').innerHTML = "Please enter a username";
+    });
+}
+</script>
+
 <body>
   <div class="container">
     <div class="row">
@@ -79,25 +100,6 @@
   </div>
 </body>
 
-<script>
-function login() {
-    var username = document.getElementById("inputUsername").value;
-    // fetch(http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/ + username)
-    fetch("http://dummy.restapiexample.com/api/v1/" + username)
-    .then((resp) => resp.json())
-    .then(function(data){
-      // Store results in session
-      // sessionStorage.setItem("userName", data["userName"]);
-      // sessionStorage.setItem("customerId", data["customerId"]);
-      window.location.href = "home.html";
-      // console.log(data);
-    })
-    .catch(function(error) {
-      alert("Invalid username or password!");
-	   window.location.href = "404.html";
-      // document.getElementById('error').innerHTML = "Please enter a username";
-    });
-}
-</script>
+
 
 </html>
