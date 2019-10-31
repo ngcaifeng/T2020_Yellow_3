@@ -3,6 +3,7 @@ package com.javagbunga.springbootexample.WebServices;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.javagbunga.springbootexample.Common.CommonAPI;
+import com.javagbunga.springbootexample.Common.CommonUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,12 +28,16 @@ public class LoginController {
         String requestURL = CommonAPI.getCustomerDetails + userName;
         //Getting the responsible
 
+<<<<<<< HEAD
         ResponseEntity<String> result;
         try {
             result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);
             return result.getBody();
         }catch(HttpClientErrorException e){
             return "400";
+=======
+            return CommonUtils.convertStringToJson(result.getBody()).toString();
+>>>>>>> 285100fa85a7a09820085a6065659a468b9b499f
         }
     }
 }

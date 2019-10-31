@@ -1,6 +1,7 @@
 package com.javagbunga.springbootexample.WebServices;
 
 import com.javagbunga.springbootexample.Common.CommonAPI;
+import com.javagbunga.springbootexample.Common.CommonUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,7 +32,7 @@ public class MarketingController {
 
         System.out.println(result);
 
-        return result.getBody();
+        return CommonUtils.convertStringToJsonArray(result.getBody()).toString();
 
     }
 }

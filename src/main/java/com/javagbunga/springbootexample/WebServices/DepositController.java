@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.util.HashMap;
-import java.util.Iterator;
-
 @RestController
 public class DepositController {
 
     @CrossOrigin
-    @RequestMapping(path = "/getDepositBalance")
-    public String getDepositBalance(@RequestParam(value="accountID", defaultValue="") String accountID ,@RequestParam(value="month", defaultValue="") String month , @RequestParam(value="year", defaultValue="") String year) {
+    @RequestMapping("/deposit_balance")
+    public String getDepositBalance(@RequestParam(value="accountId", defaultValue="1") String accountID,
+            @RequestParam(value="month", defaultValue="1") String month,
+            @RequestParam(value="year", defaultValue="1") String year)
+    {
+
         //Getting the request entity
         HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
         //Modifying the URL
@@ -28,6 +29,7 @@ public class DepositController {
         requestURL = requestURL.replace("YYYY", year);
 
         ResponseEntity<String> result = null;
+
         //Getting the responsible
         try {
             result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);

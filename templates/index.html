@@ -82,12 +82,24 @@
 <script>
 function login() {
     var username = document.getElementById("inputUsername").value;
+<<<<<<< HEAD
     fetch("http://localhost:8080/login?userName="+username)
     .then((resp) => resp.json())
     .then(function(data){
 	  sessionStorage.setItem("customerId", data['customerId']);
 	  console.log(data['customerId']);
       window.location.href = "../../index.html";
+=======
+    // fetch(http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/ + username)
+    fetch("http://dummy.restapiexample.com/api/v1/" + username)
+    .then((resp) => resp.json())
+    .then(function(data){
+      // Store results in session
+      // sessionStorage.setItem("userName", data["userName"]);
+      // sessionStorage.setItem("customerId", data["customerId"]);
+      window.location.href = "home.html";
+      // console.log(data);
+>>>>>>> 285100fa85a7a09820085a6065659a468b9b499f
     })
     .catch(function(error) {
       alert("Invalid username or password!");
