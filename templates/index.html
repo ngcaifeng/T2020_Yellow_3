@@ -17,6 +17,35 @@
 </head>
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
+<!-- Navigation bar -->
+<div class="topnav">
+  <a class="active">shh</a>
+  <!-- <div class="topnav-right">
+    <a href="#logout">Logout</a>
+    <a href="#messages">Messages</a>
+    <a href="#creditcards">Credit Cards</a>
+  </div> -->
+</div>
+
+<style>
+  /* Add a red background color to the top navigation */
+  .topnav {
+    background-color: #BF2F24;
+    overflow: hidden;
+    color: #BF2F24;
+  }
+
+  .topnav a {
+    float: right;
+    color: #BF2F24;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #BF2F24;
+  }
+</style>
+
 <body>
   <div class="container">
     <div class="row">
@@ -26,19 +55,21 @@
             <h5 class="card-title text-center">Expense Tracker</h5>
               <div class="form-label-group">
                 <input type="" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputUsername">Username</label>
+                <!-- <label for="inputUsername">Username</label> -->
+                <label for="inputUsername"></label>
               </div>
 
               <div class="form-label-group">
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
+                <!-- <label for="inputPassword">Password</label> -->
+                <label for="inputPassword"></label>
               </div>
 
               <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="login()">Login</button>
+              <button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit" onclick="login()">Login</button>
               <hr class="my-4">
           </div>
         </div>
