@@ -18,26 +18,21 @@ public class LoginController {
 
     @CrossOrigin
     @RequestMapping("/login")
-    public String login(@RequestParam(value="userName", defaultValue="limzeyang") String userName,
-                                     @RequestParam(value="password", defaultValue = PWD) String password) {
+    public String login(@RequestParam(value="userName", defaultValue="limzeyang") String userName) {
+
+
+        //Getting the request entity
+        HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
+        //Modifying the URL
+        String requestURL = CommonAPI.getCustomerDetails + userName;
+        //Getting the responsible
+
         ResponseEntity<String> result;
-
-        if(password.equals(PWD)) {
-            //Getting the request entity
-            HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
-            //Modifying the URL
-            String requestURL = CommonAPI.getCustomerDetails + userName;
-            //Getting the responsible
-
-            try {
-                result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);
-            }catch(HttpClientErrorException e){
-                return "400";
-            }
-
+        try {
+            result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);
             return result.getBody();
+        }catch(HttpClientErrorException e){
+            return "400";
         }
-
-        return "400";
     }
 }

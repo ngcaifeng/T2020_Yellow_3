@@ -82,14 +82,16 @@
 <script>
 function login() {
     var username = document.getElementById("inputUsername").value;
-    fetch("http://dummy.restapiexample.com/api/v1/" + username)
+    fetch("http://localhost:8080/login?userName="+username)
     .then((resp) => resp.json())
     .then(function(data){
-      window.location.href = "home.html";
-      // console.log(data);
+	  sessionStorage.setItem("customerId", data['customerId']);
+	  console.log(data['customerId']);
+      window.location.href = "../../index.html";
     })
     .catch(function(error) {
       alert("Invalid username or password!");
+	   window.location.href = "404.html";
       // document.getElementById('error').innerHTML = "Please enter a username";
     });
 }
