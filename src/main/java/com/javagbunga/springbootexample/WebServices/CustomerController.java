@@ -40,7 +40,7 @@ public class CustomerController {
         JsonObject jsonObject = parser.parse(response).getAsJsonObject();
 
         //This is the part where i will return the ID of the customer
-        return jsonObject.get("customerId").getAsString();
+        return jsonObject.toString();
     }
 
     @CrossOrigin
