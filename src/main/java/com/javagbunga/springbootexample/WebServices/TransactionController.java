@@ -56,4 +56,49 @@ public class TransactionController {
     }
 
 
+    /**
+     * This function will be responsible for returning the transaction details and grouping them by type
+     * @return
+     */
+    @CrossOrigin
+    @RequestMapping(path = "/getTransactionsDetailsByType")
+    public String getTransactionsDetailsByType(@RequestParam(value="accountID", defaultValue="") String accountID ,@RequestParam(value="fromDate", defaultValue="") String fromDate , @RequestParam(value="toDate", defaultValue="") String toDate) {
+        //Getting the request entity
+        HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
+        //Modifying the URL
+        String requestURL = CommonAPI.getTransactionDetails;
+        requestURL = requestURL.replace("####", accountID);
+        requestURL = requestURL.replace("FFFF", fromDate);
+        requestURL = requestURL.replace("TTTT", toDate);
+        //Getting the responsible
+        ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
+
+        //This portion we need to change this into json and return the ID
+        String response = result.getBody();
+        HashMap<String, Float> tagCategories = new HashMap<>();
+        //This is the part whereby
+        JsonArray jsonArray = new JsonParser().parse(response).getAsJsonArray();
+        Iterator<JsonElement> iterator = jsonArray.iterator();
+        while(iterator.hasNext()) {
+            JsonElement element = iterator.next();
+            JsonObject object = element.getAsJsonObject();
+            String type = object.get("type").getAsString();
+            String amount = object.get("amount").getAsString();
+
+            //If the tag catgories for such key of the FNB
+            if(tagCategories.containsKey(type)){
+                float baseAmount = tagCategories.get(type);
+                baseAmount = baseAmount + Float.parseFloat(amount);
+                tagCategories.put(type,baseAmount);
+            }else{
+                //If this is a new categories
+                tagCategories.put(type,Float.parseFloat(amount));
+            }
+        }
+        String jsonString = new Gson().toJson(tagCategories);
+        return jsonString;
+    }
+
+
+
 }
