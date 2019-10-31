@@ -7,5 +7,4 @@ public class CommonAPI {
 
     //Customer API
     public final static String getCustomerDetails = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/";
-    public final static String
 }
