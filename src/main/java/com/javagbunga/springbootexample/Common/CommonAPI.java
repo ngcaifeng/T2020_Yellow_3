@@ -4,7 +4,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -17,6 +16,7 @@ public class CommonAPI {
     public final static String token = "63c06a21-263c-4e0a-a502-7230ac6f6b8f";
 
     //Customer API
+    public final static String getCustomerID = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/";
     public final static String getCustomerDetails = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/";
 
     /**

@@ -1,9 +1,11 @@
 package com.javagbunga.springbootexample.WebServices;
 
 import com.javagbunga.springbootexample.Common.CommonAPI;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,28 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class CustomerController {
+
+    @CrossOrigin
+    @RequestMapping("/getCustomerID")
+    public String getCustomerID(@RequestParam(value="userName", defaultValue="") String userName) {
+        //Getting the request entity
+        HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
+        //Modifying the URL
+        String requestURL = CommonAPI.getCustomerID + userName;
+        //Getting the responsible
+        ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
+
+        //This portion we need to change this into json and return the ID
+        String response = result.getBody();
+        JsonParser parser = new JsonParser();
+        JsonObject jsonObject = parser.parse(response).getAsJsonObject();
+        //This is the part where i will return the ID of the customer
+        return jsonObject.get("customerId").getAsString();
+    }
+
     @CrossOrigin
     @RequestMapping("/getCustomerDetails")
-    public String getCustomerDetails(@RequestParam(value="userName", defaultValue="marytan") String userName) {
+    public String getCustomerDetails(@RequestParam(value="userName", defaultValue="") String userName) {
         //Getting the request entity
         HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
         //Modifying the URL
@@ -26,5 +47,9 @@ public class CustomerController {
         ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
         return result.getBody();
     }
+
+
+
+
 
 }
