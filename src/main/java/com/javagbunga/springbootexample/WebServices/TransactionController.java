@@ -14,7 +14,6 @@ import java.util.Iterator;
  */
 @RestController
 public class TransactionController {
-
     @CrossOrigin
     @RequestMapping(path = "/getTransactionsDetailsByTags")
     public String getTransactionsDetailsByTags(@RequestParam(value="accountID", defaultValue="") String accountID ,@RequestParam(value="fromDate", defaultValue="") String fromDate , @RequestParam(value="toDate", defaultValue="") String toDate) {
@@ -100,5 +99,50 @@ public class TransactionController {
     }
 
 
+    @CrossOrigin
+    @RequestMapping(path = "/getListofTransaction")
+    public String getListofTransaction(@RequestParam(value="accountID", defaultValue="") String accountID ,@RequestParam(value="fromDate", defaultValue="") String fromDate , @RequestParam(value="toDate", defaultValue="") String toDate) {
+//Getting the request entity
+        HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
+        //Modifying the URL
+        String requestURL = CommonAPI.getTransactionDetails;
+        requestURL = requestURL.replace("####", accountID);
+        requestURL = requestURL.replace("FFFF", fromDate);
+        requestURL = requestURL.replace("TTTT", toDate);
+        //Getting the responsible
+        ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
 
+        //This portion we need to change this into json and return the ID
+        String response = result.getBody();
+        HashMap<String, Float> tagCategories = new HashMap<>();
+        //This is the part whereby
+        JsonArray jsonArray = new JsonParser().parse(response).getAsJsonArray();
+        return jsonArray.toString();
+    }
+
+    @CrossOrigin
+    @RequestMapping(path = "/getComputedAmount")
+    public String getComputedAmount(@RequestParam(value="accountID", defaultValue="") String accountID ,@RequestParam(value="fromDate", defaultValue="") String fromDate , @RequestParam(value="toDate", defaultValue="") String toDate) {
+        HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
+        //Modifying the URL
+        String requestURL = CommonAPI.getTransactionDetails;
+        requestURL = requestURL.replace("####", accountID);
+        requestURL = requestURL.replace("FFFF", fromDate);
+        requestURL = requestURL.replace("TTTT", toDate);
+        //Getting the responsible
+        ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
+
+        float totalAmount = 0;
+        //This portion we need to change this into json and return the ID
+        String response = result.getBody();
+        JsonArray jsonArray = new JsonParser().parse(response).getAsJsonArray();
+        Iterator<JsonElement> iterator = jsonArray.iterator();
+        while(iterator.hasNext()) {
+            JsonElement element = iterator.next();
+            JsonObject object = element.getAsJsonObject();
+            String amount = object.get("amount").getAsString();
+            totalAmount = totalAmount + Float.parseFloat(amount);
+        }
+        return String.valueOf(totalAmount);
+    }
 }
