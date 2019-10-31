@@ -14,7 +14,7 @@ import org.springframework.web.client.HttpClientErrorException;
 public class CreditController {
 
     @CrossOrigin
-    @RequestMapping("/messages")
+    @RequestMapping("/credit_balance")
     public String getCreditBalance(@RequestParam(value="accountId", defaultValue="1") String accountId)
     {
         ResponseEntity<String> result;
@@ -31,7 +31,7 @@ public class CreditController {
         }
 
         System.out.println(result);
-                
+
         return result.getBody();
     }
 }

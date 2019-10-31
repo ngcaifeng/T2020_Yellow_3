@@ -14,7 +14,7 @@ public class MarketingController {
 
     @CrossOrigin
     @RequestMapping("/marketing")
-    public String login(@RequestParam(value="id", defaultValue="1") String marketingId)
+    public String getMarketing(@RequestParam(value="id", defaultValue="1") String marketingId)
     {
         ResponseEntity<String> result;
 
