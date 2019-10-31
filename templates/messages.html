@@ -1,3 +1,22 @@
+messages.html
+
+N
+Type
+HTML
+Size
+9 KB (9,290 bytes)
+Storage used
+0 bytesOwned by
+Location
+Tech Trek
+Owner
+Hazeeq
+Modified
+4:43 PM by Hazeeq
+Created
+4:43 PM
+Add a description
+Viewers can download
 <meta charset="UTF-8" />
 
 <html>
@@ -43,7 +62,7 @@
 <!-- Navigation bar -->
 <div class="topnav">
   <div class="topnav-home">
-    <a class="active" href="home.html">Home</a>
+    <a class="active" href="#home">Home</a>
   </div>
   <div class="topnav-right">
     <a href="index.html">Logout</a>
@@ -109,11 +128,55 @@
         </thead>
         <tbody>
           <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
-            <td style="text-align: center; vertical-align: middle; width: 30%"><!--insert dateCreated--></td>
-            <td style="text-overflow; vertical-align: middle"><!--insert subject--></td>
-            <td style="text-align: center; vertical-align: middle"><!--insert topic--></td>
-            <td style="text-align: center; vertical-align: middle"><!--insert marketing / personal--></td>
-            <td style="text-align: center; vertical-align: middle"><!--insert isRead--></td>
+            <td style="text-align: center; vertical-align: middle; width: 30%"><!--insert dateCreated-->2018-01-01</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert subject-->Enquiry</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert topic-->General</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert marketing / personal-->Personal</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert isRead-->Read</td>
+            <td>
+              <!-- insert onclick function here -->
+              <button class="btn btn-danger" onclick="">Read more</button>
+            </td>
+          </tr>
+          <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+            <td style="text-align: center; vertical-align: middle; width: 30%"><!--insert dateCreated-->2018-01-04</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert subject-->Enquiry</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert topic-->General</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert marketing / personal-->Marketing</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert isRead-->Read</td>
+            <td>
+              <!-- insert onclick function here -->
+              <button class="btn btn-danger" onclick="">Read more</button>
+            </td>
+          </tr>
+          <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+            <td style="text-align: center; vertical-align: middle; width: 30%"><!--insert dateCreated-->2018-01-08</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert subject-->Cancel Card</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert topic-->Credit Cards</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert marketing / personal-->Personal</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert isRead-->Read</td>
+            <td>
+              <!-- insert onclick function here -->
+              <button class="btn btn-danger" onclick="">Read more</button>
+            </td>
+          </tr>
+          <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+            <td style="text-align: center; vertical-align: middle; width: 30%"><!--insert dateCreated-->2018-01-10</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert subject-->Enquiry</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert topic-->General</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert marketing / personal-->Personal</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert isRead-->Unread</td>
+            <td>
+              <!-- insert onclick function here -->
+              <button class="btn btn-danger" onclick="">Read more</button>
+            </td>
+          </tr>
+          <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
+            <td style="text-align: center; vertical-align: middle; width: 30%"><!--insert dateCreated-->2018-01-11</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert subject-->Cancel Card</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert topic-->Credit Cards</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert marketing / personal-->Personal</td>
+            <td style="text-align: center; vertical-align: middle"><!--insert isRead-->Unread</td>
             <td>
               <!-- insert onclick function here -->
               <button class="btn btn-danger" onclick="">Read more</button>
@@ -152,8 +215,6 @@
     $('#messages_table').DataTable();
     $('.dataTables_length').addClass('bs-select');
   });
-  // Read more function should be here
-  // insert body
 </script>
 
 </html>
