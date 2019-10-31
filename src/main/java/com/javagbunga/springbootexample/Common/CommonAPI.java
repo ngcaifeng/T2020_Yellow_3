@@ -24,6 +24,8 @@ public class CommonAPI {
 
     //Account API
     public final static String getListofDepositAccount = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/accounts/deposit/";
+    //public final static String getDepositAccount = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/accounts/deposit/10/balance?month=1&year=2018";
+    public final static String getDepositAccount = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/accounts/deposit/####/balance?month=MMMM&year=YYYY";
 
     //Transaction API
     //public final static String getTransactionDetails = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/transactions/10?from=01-01-2018&to=02-01-2019";
