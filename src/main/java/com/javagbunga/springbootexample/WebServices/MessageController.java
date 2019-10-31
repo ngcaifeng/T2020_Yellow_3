@@ -14,7 +14,7 @@ public class MessageController {
 
     @CrossOrigin
     @RequestMapping("/messages")
-    public String login(@RequestParam(value="customerId", defaultValue="1") String customerId)
+    public String getMessages(@RequestParam(value="customerId", defaultValue="1") String customerId)
     {
         ResponseEntity<String> result;
 
@@ -29,7 +29,6 @@ public class MessageController {
                 return "400";
             }
 
-            System.out.println(result);
 
             return result.getBody();
 

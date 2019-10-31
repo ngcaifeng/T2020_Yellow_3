@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Tracker</title>
+  <!-- <link href="style.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <a href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet"></a>
+  <!-- Material Design Bootstrap -->
+  <a href="css/mdb.min.css" rel="stylesheet"></a>
+  <!-- MDBootstrap Datatables  -->
+  <a href="css/addons/datatables.min.css" rel="stylesheet"></a>
+</head>
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+<!-- Navigation bar -->
+<div class="topnav">
+  <a class="active">shh</a>
+  <!-- <div class="topnav-right">
+    <a href="#logout">Logout</a>
+    <a href="#messages">Messages</a>
+    <a href="#creditcards">Credit Cards</a>
+  </div> -->
+</div>
+
+<style>
+  /* Add a red background color to the top navigation */
+  .topnav {
+    background-color: #BF2F24;
+    overflow: hidden;
+    color: #BF2F24;
+  }
+
+  .topnav a {
+    float: right;
+    color: #BF2F24;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #BF2F24;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Expense Tracker</h5>
+              <div class="form-label-group">
+                <input type="" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+                <!-- <label for="inputUsername">Username</label> -->
+                <label for="inputUsername"></label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <!-- <label for="inputPassword">Password</label> -->
+                <label for="inputPassword"></label>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit" onclick="login()">Login</button>
+              <hr class="my-4">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="error" class="alert alert-danger" role="alert"></div> -->
+  </div>
+</body>
+
+<script>
+function login() {
+    var username = document.getElementById("inputUsername").value;
+    fetch("http://dummy.restapiexample.com/api/v1/" + username)
+    .then((resp) => resp.json())
+    .then(function(data){
+      window.location.href = "home.html";
+      // console.log(data);
+    })
+    .catch(function(error) {
+      alert("Invalid username or password!");
+      // document.getElementById('error').innerHTML = "Please enter a username";
+    });
+}
+</script>
+
+</html>
