@@ -1,8 +1,8 @@
 package com.javagbunga.springbootexample.WebServices;
 
+import com.google.gson.JsonObject;
 import com.javagbunga.springbootexample.Common.CommonAPI;
 import com.javagbunga.springbootexample.Common.CommonUtils;
-import com.google.gson.JsonObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * This class wlll be responsible for getting all the accounts related request
+ * This class will be handling the transaction controller
  */
 @RestController
-public class AccountsController {
+public class TransactionController {
 
     @CrossOrigin
-    @RequestMapping("/getUserAccount")
-    public JsonObject getUserAccount(@RequestParam(value="customerID", defaultValue="") String customerID) {
+    @RequestMapping("/getTransactionsDetails")
+    public JsonObject getTransactionsDetails(@RequestParam(value="customerID", defaultValue="") String customerID) {
         //Getting the request entity
         HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
         //Modifying the URL
@@ -27,7 +27,4 @@ public class AccountsController {
         ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
         return CommonUtils.convertStringToJson(result.getBody());
     }
-
-
-
 }
