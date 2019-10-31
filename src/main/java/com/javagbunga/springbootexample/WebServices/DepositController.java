@@ -15,11 +15,10 @@ public class DepositController {
 
     @CrossOrigin
     @RequestMapping("/deposit_balance")
-    public String getDepositBalance(@RequestParam(value="accountId", defaultValue="1") String accountId,
-            @RequestParam(value="accountId", defaultValue="1") String month,
-            @RequestParam(value="accountId", defaultValue="1") String year)
+    public String getDepositBalance(@RequestParam(value="accountId", defaultValue="1") String accountID,
+            @RequestParam(value="month", defaultValue="1") String month,
+            @RequestParam(value="year", defaultValue="1") String year)
     {
-        ResponseEntity<String> result;
 
         //Getting the request entity
         HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
@@ -30,6 +29,7 @@ public class DepositController {
         requestURL = requestURL.replace("YYYY", year);
 
         ResponseEntity<String> result = null;
+
         //Getting the responsible
         try {
             result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);

@@ -3,6 +3,7 @@ package com.javagbunga.springbootexample.WebServices;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.javagbunga.springbootexample.Common.CommonAPI;
+import com.javagbunga.springbootexample.Common.CommonUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,7 +36,7 @@ public class LoginController {
                 return "400";
             }
 
-            return result.getBody();
+            return CommonUtils.convertStringToJson(result.getBody()).toString();
         }
 
         return "400";
