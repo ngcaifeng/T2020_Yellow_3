@@ -18,7 +18,7 @@ public class CustomerController {
 
     @CrossOrigin
     @RequestMapping("/getCustomerID")
-    public String getCustomerID(@RequestParam(value="userName", defaultValue="") String userName) {
+    public JsonObject getCustomerID(@RequestParam(value="userName", defaultValue="") String userName) {
         //Getting the request entity
         HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
         //Modifying the URL
@@ -31,7 +31,7 @@ public class CustomerController {
         JsonParser parser = new JsonParser();
         JsonObject jsonObject = parser.parse(response).getAsJsonObject();
         //This is the part where i will return the ID of the customer
-        return jsonObject.get("customerId").getAsString();
+        return jsonObject;
     }
 
     @CrossOrigin
