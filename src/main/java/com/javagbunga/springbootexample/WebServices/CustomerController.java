@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 
 /**
  * This controller will be responsible for getting all the customer  response
@@ -24,12 +25,20 @@ public class CustomerController {
         //Modifying the URL
         String requestURL = CommonAPI.getCustomerID + userName;
         //Getting the responsible
-        ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
+        ResponseEntity<String> result;
+
+        try {
+            result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);
+        }catch(HttpClientErrorException e){
+            return "400";
+        }
 
         //This portion we need to change this into json and return the ID
         String response = result.getBody();
+
         JsonParser parser = new JsonParser();
         JsonObject jsonObject = parser.parse(response).getAsJsonObject();
+
         //This is the part where i will return the ID of the customer
         return jsonObject.toString();
     }
@@ -44,8 +53,17 @@ public class CustomerController {
         requestURL = requestURL.replace("####",customerID);
         //Getting the responsible
         ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
+
+        try {
+            result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);
+        }catch(HttpClientErrorException e){
+            return "400";
+        }
+
         return result.getBody();
     }
+
+
 
 
 

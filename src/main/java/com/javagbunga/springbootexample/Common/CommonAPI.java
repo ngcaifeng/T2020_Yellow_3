@@ -17,7 +17,9 @@ public class CommonAPI {
 
     //Customer API
     public final static String getCustomerID = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/";
-    public final static String getCustomerDetails = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/####/details";
+    public final static String getCustomerDetails = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/";
+    public final static String getPersonalMessages = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/message/";
+    public final static String getMarketingMessages = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/marketing/";
 
     //Account API
     public final static String getListofDepositAccount = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/accounts/deposit/";
