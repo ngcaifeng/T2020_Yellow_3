@@ -19,6 +19,9 @@ public class CommonAPI {
     public final static String getCustomerID = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/";
     public final static String getCustomerDetails = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/";
 
+    //Account API
+    public final static String getListofDepositAccount = "http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/accounts/deposit/";
+
     /**
      * This function will be responsible for getting http entity
      * @return

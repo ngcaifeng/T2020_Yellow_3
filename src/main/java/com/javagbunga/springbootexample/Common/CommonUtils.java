@@ -14,7 +14,7 @@ public class CommonUtils {
      * @param response
      * @return
      */
-    public JsonObject convertStringToJson(String response) {
+    public static JsonObject convertStringToJson(String response) {
         JsonParser parser = new JsonParser();
         JsonObject jsonObject = parser.parse(response).getAsJsonObject();
         return jsonObject;
@@ -26,7 +26,7 @@ public class CommonUtils {
      * @param key
      * @return
      */
-    public String fetchItemFromJson(JsonObject jsonObject, String key){
+    public static String fetchItemFromJson(JsonObject jsonObject, String key){
         return jsonObject.get(key).getAsString();
     }
 }
