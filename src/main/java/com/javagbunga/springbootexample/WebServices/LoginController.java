@@ -27,17 +27,12 @@ public class LoginController {
         //Modifying the URL
         String requestURL = CommonAPI.getCustomerDetails + userName;
         //Getting the responsible
-
-<<<<<<< HEAD
         ResponseEntity<String> result;
         try {
             result = CommonAPI.getHTTPGetResponse(requestURL, requestEntity);
             return result.getBody();
         }catch(HttpClientErrorException e){
             return "400";
-=======
-            return CommonUtils.convertStringToJson(result.getBody()).toString();
->>>>>>> 285100fa85a7a09820085a6065659a468b9b499f
         }
     }
 }
