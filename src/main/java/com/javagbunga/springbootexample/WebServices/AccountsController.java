@@ -18,14 +18,14 @@ public class AccountsController {
 
     @CrossOrigin
     @RequestMapping("/getUserAccount")
-    public JsonObject getUserAccount(@RequestParam(value="customerID", defaultValue="") String customerID) {
+    public String getUserAccount(@RequestParam(value="customerID", defaultValue="") String customerID) {
         //Getting the request entity
         HttpEntity<String> requestEntity = CommonAPI.getHtttpEntity();
         //Modifying the URL
         String requestURL = CommonAPI.getListofDepositAccount + customerID;
         //Getting the responsible
         ResponseEntity<String> result = CommonAPI.getHTTPGetResponse(requestURL,requestEntity);
-        return CommonUtils.convertStringToJson(result.getBody());
+        return CommonUtils.convertStringToJsonArray(result.getBody()).toString();
     }
 
 

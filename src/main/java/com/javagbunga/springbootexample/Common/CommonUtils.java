@@ -1,6 +1,10 @@
 package com.javagbunga.springbootexample.Common;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import java.util.Iterator;
 
 /**
  * This class will be handling all the common utils functionality
@@ -29,4 +33,11 @@ public class CommonUtils {
     public static String fetchItemFromJson(JsonObject jsonObject, String key){
         return jsonObject.get(key).getAsString();
     }
+
+    public static JsonArray convertStringToJsonArray(String response) {
+        JsonParser parser = new JsonParser();
+        JsonArray jsonArray = parser.parse(response).getAsJsonArray();
+        return jsonArray;
+    }
+
 }
