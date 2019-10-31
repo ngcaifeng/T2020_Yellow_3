@@ -82,9 +82,13 @@
 <script>
 function login() {
     var username = document.getElementById("inputUsername").value;
+    // fetch(http://techtrek-api-gateway.ap-southeast-1.elasticbeanstalk.com/customers/ + username)
     fetch("http://dummy.restapiexample.com/api/v1/" + username)
     .then((resp) => resp.json())
     .then(function(data){
+      // Store results in session
+      // sessionStorage.setItem("userName", data["userName"]);
+      // sessionStorage.setItem("customerId", data["customerId"]);
       window.location.href = "home.html";
       // console.log(data);
     })
