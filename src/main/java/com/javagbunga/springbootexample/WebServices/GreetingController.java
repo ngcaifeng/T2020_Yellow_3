@@ -28,7 +28,9 @@ public class GreetingController {
     @RequestMapping("/getAllEmployees")
     public String getAllEmployees(){
         //This will be the API Call URL
+
         final String uri = "http://dummy.restapiexample.com/api/v1/employees";
+        System.out.println(uri);
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
         return result;
