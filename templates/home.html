@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <meta charset="UTF-8" />
 
@@ -40,6 +41,57 @@
       text-overflow: ellipsis;
     }
   </style>
+  <script>
+function preload() {
+	var accountID = "";
+    fetch("http://localhost:8080/getUserAccount?customerID="+sessionStorage.getItem("customerId"))
+    .then((resp) => resp.json())
+    .then(function(data){
+	  //Account ID
+	  var displayName = data[0]['displayName'];
+	  var accountNumber = data[0]['accountNumber'];
+	  accountID = data[0]['accountId'];
+	  console.log(accountID);
+	  fetch("http://localhost:8080/getDepositBalance?accountID="+accountID+"&balance?month=10&year=2018")
+		.then((resp) => resp.json())
+		.then(function(data){
+		  //Account ID
+		  var accountBalance = data['availableBalance'];
+		  console.log(accountBalance);
+		  document.getElementById("accountBalance").innerHTML = accountBalance;
+		  var fullString = displayName + " " + accountNumber;
+		  console.log(displayName);
+		  console.log(accountNumber);
+		  document.getElementById("savingAccount").innerHTML = fullString;
+		})
+		.catch(function(error) {
+		  alert("Preloading problem");
+		  // document.getElementById('error').innerHTML = "Please enter a username";
+		});
+		
+		//This portion we can call the by categories http://localhost:8080/getListofTransaction?accountID=74&fromDate=01-01-2018&toDate=02-10-2018
+		fetch("http://localhost:8080/getListofTransaction?accountID="+accountID+"&fromDate=01-10-2018&toDate=02-2-2019")
+		.then((resp) => resp.json())
+		.then(function(data){
+		  //This portion is is the part where im getting json
+		  Console.log(data);
+		})
+		.catch(function(error) {
+		  // document.getElementById('error').innerHTML = "Please enter a username";
+		});
+    })
+    .catch(function(error) {
+      alert("Some Problem");
+      // document.getElementById('error').innerHTML = "Please enter a username";
+    });
+	
+	
+}
+
+window.onload = function() {
+  preload();
+};
+</script>
 </head>
 
 <!-- Navigation bar -->
@@ -48,9 +100,9 @@
     <a class="active" href="#home">Home</a>
   </div>
   <div class="topnav-right">
-    <a href="#logout">Logout</a>
-    <a href="#messages">Messages</a>
-    <a href="#creditcards">Credit Cards</a>
+    <a href="index.html">Logout</a>
+    <a href="messages.html">Messages</a>
+    <a href="creditcards.html">Credit Cards</a>
   </div>
 </div>
 
@@ -113,12 +165,12 @@
             <table id="messages_table" class="table" cellspacing="0" role="grid" aria-describedby="messages_table_info" sytle="width: auto">
               <thead style="background-color: rgba(255, 255, 255, 0.952);border-radius: 15px">
                 <tr style="vertical-align: middle; font-size: 20px" height=45>
-                  <th style="text-align: center; width: 10%">Balance</th>
+                  <th style="text-align: center; width: 10%" >Balance</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
-                  <td style="text-align: center; vertical-align: middle; width: 30%">$2000<!--insert balance--></td>
+                  <td style="text-align: center; vertical-align: middle; width: 30%" id = "accountBalance"><!--insert balance--></td>
                 </tr>
               </tbody>
             </table>
@@ -137,7 +189,7 @@
               </thead>
               <tbody>
                 <tr style="background-color: rgba(243, 243, 243, 0.808);vertical-align: middle">
-                  <td style="text-align: center; vertical-align: middle; width: 30%">POSB-SAVINGS 806290151<!--insert account number--></td>
+                  <td style="text-align: center; vertical-align: middle; width: 30%" id = "savingAccount"><!--insert account number--></td>
                 </tr>
               </tbody>
             </table>
@@ -204,16 +256,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 text-center">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <!-- <h5 class="card-title">Month's Transaction</h5> -->
-            <!-- <canvas id="lineChart"></canvas> -->
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
   <br>
 

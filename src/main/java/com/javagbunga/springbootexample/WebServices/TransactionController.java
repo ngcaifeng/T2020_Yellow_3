@@ -114,10 +114,7 @@ public class TransactionController {
 
         //This portion we need to change this into json and return the ID
         String response = result.getBody();
-        HashMap<String, Float> tagCategories = new HashMap<>();
-        //This is the part whereby
-        JsonArray jsonArray = new JsonParser().parse(response).getAsJsonArray();
-        return jsonArray.toString();
+        return result.getBody();
     }
 
     @CrossOrigin
